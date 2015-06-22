@@ -30,14 +30,14 @@ class TestDocxReport(DocxDocumentTemplate):
         return 'test.docx'
 
 
-# def testdocpreformat():
-#     """Ensure document is formatted properly - out of synctactical errors"""
-#     docx_tmpl = TestDocxReport(
-#         'test_template_placeholders.docx',
-#         template_dir=TEST_IN_DIR,
-#         output_dir=TEST_OUT_DIR)
-#     # docx_tmpl.build()
-#     assert len(docx_tmpl.q('w\:proofErr')) == 0, "check preformat method"
+def testdocpreformat():
+    """Ensure document is formatted properly - out of synctactical errors"""
+    docx_tmpl = TestDocxReport(
+        'test_template_placeholders.docx',
+        template_dir=TEST_IN_DIR,
+        output_dir=TEST_OUT_DIR)
+    # docx_tmpl.build()
+    assert len(docx_tmpl.q('w\:proofErr')) == 0, "check preformat method"
 
 def testdocfillplaceholders():
     """Ensure that placeholders is filled properly"""
