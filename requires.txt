@@ -1,0 +1,3 @@
+nose
+pyquery
+-e git+git@github.com:Rustem/docx.git@master#egg=docx
