@@ -1,3 +1,7 @@
+## Installation
+
+`pip install -e git+git@github.com:Rustem/docx-template.git@master#egg=docx-template`
+
 ## Usage
 
 ```
