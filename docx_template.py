@@ -41,6 +41,7 @@ def merge(first, q):
 class DocxDocumentTemplate(DocxDocument):
     default_template_dir = os.path.join(PROJECT_DIR, 'in')
     default_output_dir = os.path.join(PROJECT_DIR, 'out')
+    default_output_file = os.path.join(PROJECT_DIR, 'test.docx')
 
     content_type = (
         'application/vnd.openxmlformats-'
@@ -52,6 +53,7 @@ class DocxDocumentTemplate(DocxDocument):
             'template_dir', self.default_template_dir)
         self.output_dir = options.get(
             'output_dir', self.default_output_dir)
+        self.output_filename = options.get('output_filename', self.default_output_file)
         super(DocxDocumentTemplate, self).__init__(self.get_template_file())
         self.q = pq(self.document, parser='xml', namespaces=NSPREFIXES)
         self.preformat()

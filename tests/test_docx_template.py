@@ -24,10 +24,7 @@ def teardown_module():
 
 
 class TestDocxReport(DocxDocumentTemplate):
-
-    @property
-    def output_filename(self):
-        return 'test.docx'
+    pass
 
 
 def testdocpreformat():
@@ -56,6 +53,23 @@ def testdocfillplaceholders():
     assert len(docx_tmpl.q(':contains("{{secretary_fio}}")')) == 0, "placeholder not replaced properly"
     docx_tmpl.build()
     # assert len(docx_tmpl.q(':contains("secretary_fio")')) == 1, "placeholder not replaced properly"
+
+
+def testdocdirection():
+    data = {
+        'patient': u'Вася Пупкин',
+        'doctor': u'Иван Переметин',
+        'day': u'15',
+        'month': u'июня',
+        'year': u'2015'
+    }
+    docx_tmpl = TestDocxReport(
+        'test_direction.docx',
+        template_dir=TEST_IN_DIR,
+        output_dir=TEST_OUT_DIR,
+        output_filename='test_direction.docx')
+    docx_tmpl.replace(data)
+    docx_tmpl.build()
 
 if __name__ == '__main__':
     import nose
